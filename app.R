@@ -6,23 +6,36 @@ ui <- fluidPage(
   #Application Title
   titlePanel("Subscribe to Shiny RApp Newsletter"),
   
-  #Sidebar Layout
-  sidebarLayout(
-    sidebarPanel(
-      h4("CREATE ACCOUNT"),
-        textInput(inputId = "email", label = "EMAIL ADDRESS",value = "",placeholder="@gmail.com",width="50%"),
-        passwordInput(inputId="password", label="PASSWORD", value="",placeholder="minimum 4-characters",width="50%"),
+    #Sidebar Layout
+    sidebarLayout(
+      #INPUT
+      sidebarPanel(
+        h4("CREATE ACCOUNT"),
+          textInput(inputId = "email", label = "Email Address", value = "", placeholder = "@gmail.com", width="50%"),
+          passwordInput(inputId = "password", label = "Password", value = "",placeholder = "minimum 4-characters", width = "50%"),
+        h4("PERSONAL INFORMATION"),
+          textInput(inputId = "lastname", label="Last Name", placeholder = "Last Name", width = "50%"),
+          textInput(inputId = "firstname", label = "First Name", placeholder = "First Name", width = "50%"),
+          dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en")
+      ),
       
-      h4("PERSONAL INFORMATION"),
-        textInput(inputId ="lastname",label="NAME",placeholder="Last Name", width="50%"),
-        textInput(inputId ="firstname",label="",placeholder="First Name", width="50%")
-    ),
-    mainPanel("SUMMARY")
+      #OUTPUT
+      mainPanel(
+      h4("SUMMARY"),
+      textOutput("name"),
+      textOutput("birthday")
+      )
     )
-  )
-
+)
+      
 #server.R
 server <- function(input,output){
+  output$name <- renderText(
+    paste("Name: ",input$firstname, input$lastname)
+  )
+  output$birthday <- renderText(
+    paste("Birthday: ",input$birthday)
+  )
   
 }
 
