@@ -3,8 +3,14 @@ library(shiny)
 
 #ui.R
 ui <- fluidPage(
+  
+  #linked css
+  includeCSS("styles.css"),
+  
   #Application Title
-  titlePanel("Subscribe to Shiny RApp Newsletter"),
+  titlePanel(
+    h1("Subscribe to Shiny RApp Newsletter")
+       ),
   
     #Sidebar Layout
     sidebarLayout(
