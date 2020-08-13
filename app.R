@@ -20,9 +20,18 @@ ui <- fluidPage(
           textInput(inputId = "email", label = "Email Address", value = "", placeholder = "@gmail.com", width="50%"),
           passwordInput(inputId = "password", label = "Password", value = "",placeholder = "minimum 4-characters", width = "50%"),
         h4("PERSONAL INFORMATION"),
+          
+          #name
           textInput(inputId = "lastname", label="Last Name", placeholder = "Last Name", width = "50%"),
           textInput(inputId = "firstname", label = "First Name", placeholder = "First Name", width = "50%"),
-          dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en")
+          
+          #bday        
+          dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en"),
+          
+          #gender
+          radioButtons(inputId = "gender", label = "Gender", choices = c("Male", "Female")
+
+)  
       ),
       
       #OUTPUT
@@ -42,7 +51,6 @@ server <- function(input,output){
   output$birthday <- renderText(
     paste("Birthday: ",input$birthday)
   )
-  
 }
 
 #Run Application
