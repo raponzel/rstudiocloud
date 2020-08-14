@@ -19,14 +19,13 @@ ui <- fluidPage(
         h4("CREATE ACCOUNT"),
           textInput(inputId = "email", label = "Email Address", value = "", placeholder = "@gmail.com", width="50%"),
           passwordInput(inputId = "password", label = "Password", value = "",placeholder = "minimum 4-characters", width = "50%"),
+        
         h4("PERSONAL INFORMATION"),
-          
           #name
           textInput(inputId = "lastname", label="Last Name", placeholder = "Last Name", width = "50%"),
           textInput(inputId = "firstname", label = "First Name", placeholder = "First Name", width = "50%"),
           
           #bday        
-<<<<<<< HEAD
           dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en",  width = "50%"),
           
           #sex
@@ -35,17 +34,6 @@ ui <- fluidPage(
           #maritalstatus
           #selectInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "50%")
           selectizeInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "50%", selected = NULL, multiple = TRUE, options = list(maxItems = 2))
-        
-                  
-        
-=======
-          dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en"),
-          
-          #gender
-          radioButtons(inputId = "gender", label = "Gender", choices = c("Male", "Female")
-
-)  
->>>>>>> 4a73c60cf64013b9a0c5fcaf57b5662352e30393git
       ),
       
       #OUTPUT
