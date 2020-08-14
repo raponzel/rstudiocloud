@@ -28,8 +28,15 @@ ui <- fluidPage(
           #bday        
           dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en",  width = "50%"),
           
-          #gender
-          radioButtons(inputId = "gender", label = "Gender", choices = c("Male", "Female"), width = "50%")  
+          #sex
+          radioButtons(inputId = "sex", label = "Sex", choices = c("Male", "Female"), width = "50%"),
+        
+          #maritalstatus
+          #selectInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "50%")
+          selectizeInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "50%", selected = NULL, multiple = TRUE, options = list(maxItems = 2))
+        
+                  
+        
       ),
       
       #OUTPUT
