@@ -26,6 +26,7 @@ ui <- fluidPage(
           textInput(inputId = "firstname", label = "First Name", placeholder = "First Name", width = "50%"),
           
           #bday        
+<<<<<<< HEAD
           dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en",  width = "50%"),
           
           #sex
@@ -37,6 +38,14 @@ ui <- fluidPage(
         
                   
         
+=======
+          dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en"),
+          
+          #gender
+          radioButtons(inputId = "gender", label = "Gender", choices = c("Male", "Female")
+
+)  
+>>>>>>> 4a73c60cf64013b9a0c5fcaf57b5662352e30393git
       ),
       
       #OUTPUT
