@@ -16,24 +16,38 @@ ui <- fluidPage(
     sidebarLayout(
       #INPUT
       sidebarPanel(
-        h4("CREATE ACCOUNT"),
-          textInput(inputId = "email", label = "Email Address", value = "", placeholder = "@gmail.com", width="50%"),
-          passwordInput(inputId = "password", label = "Password", value = "",placeholder = "minimum 4-characters", width = "50%"),
+        width = 3,
+        h4("CREATE ACCOUNT"), 
+          textInput(inputId = "email", label = "Email Address", value = "", placeholder = "@gmail.com", width = "65%"),
+          passwordInput(inputId = "password", label = "Password", value = "",placeholder = "minimum 4-characters", width = "65%"),
         
         h4("PERSONAL INFORMATION"),
           #name
-          textInput(inputId = "lastname", label="Last Name", placeholder = "Last Name", width = "50%"),
-          textInput(inputId = "firstname", label = "First Name", placeholder = "First Name", width = "50%"),
+          textInput(inputId = "lastname", label="Last Name", placeholder = "Last Name", width = "65%"),
+          textInput(inputId = "firstname", label = "First Name", placeholder = "First Name", width = "65%"),
           
           #bday        
-          dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en",  width = "50%"),
+          dateInput(inputId = "birthday", label = "Birthday", value = NULL, min = NULL, max = NULL, format = "yyyy-mm-dd", startview = NULL, weekstart = 0, language = "en",  width = "65%"),
           
           #sex
-          radioButtons(inputId = "sex", label = "Sex", choices = c("Male", "Female"), width = "50%"),
+          radioButtons(inputId = "sex", label = "Sex", choices = c("Male", "Female"), width = "65%"),
         
           #maritalstatus
-          #selectInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "50%")
-          selectizeInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "50%", selected = NULL, multiple = TRUE, options = list(maxItems = 2))
+          #selectInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "65%")
+          selectizeInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "65%", selected = NULL, multiple = TRUE, options = list(maxItems = 2)),
+        
+          #language
+          checkboxGroupInput(inputId = "language", label = "Language", choices = list("Filipino", "English", "Others, please specify")),
+        
+          #numberofchildren
+          numericInput(inputId = "numberofchildren", label = "Number of Children", value = 0, min = 0, max = 100, step = 1, width = "65%"),
+        
+          #workexperienceinyears
+          sliderInput(inputId = "workexperienceinyears", label = "Work Experience in years ", min = 0, max = 50, value = NULL, step = 1, ticks = TRUE, animate = FALSE, width = "65%", post = " years"),
+          
+          #uploadphoto
+          fileInput(inputId = "uploadphoto", label = "Upload Photo", multiple = FALSE, accept = c(".png", ".jpg", ".svg", ".gif"), width = "65%", buttonLabel = "Browse...") #placeholder = NULL
+        
       ),
       
       #OUTPUT
