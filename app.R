@@ -54,7 +54,9 @@ ui <- fluidPage(
       mainPanel(
       h4("SUMMARY"),
       textOutput("name"),
-      textOutput("birthday")
+      textOutput("birthday"),
+      textOutput("age"),
+      
       )
     )
 )
@@ -67,6 +69,14 @@ server <- function(input,output){
   output$birthday <- renderText(
     paste("Birthday: ",input$birthday)
   )
+  output$age <- renderText(
+    paste("Age: ", calcage)
+  )  
+
+  
+  #agecalculation
+  library(eeptools)
+  age_calc(dob = as.Date('1988-09-05'), units = 'years')
 }
 
 #Run Application
