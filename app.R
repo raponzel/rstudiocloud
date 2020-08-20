@@ -54,7 +54,9 @@ ui <- fluidPage(
       mainPanel(
       h4("SUMMARY"),
       textOutput("name"),
-      textOutput("birthday")
+      textOutput("birthday"),
+      textOutput("age"),
+      
       )
     )
 )
@@ -67,7 +69,13 @@ server <- function(input,output){
   output$birthday <- renderText(
     paste("Birthday: ",input$birthday)
   )
+  output$age <- renderText(
+    paste("Age: ", agecalc)
+  )  
+  agecalc <- age_calc(dob = input$birthday, units = "years")
 }
 
 #Run Application
 shinyApp(ui =ui, server = server)
+
+
