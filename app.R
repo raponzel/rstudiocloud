@@ -70,7 +70,6 @@ server <- function(input,output){
     paste("Birthday: ",input$birthday)
   )
   output$age <- renderText(
-<<<<<<< HEAD
     paste("Age: ", absage)
   )  
 
@@ -79,12 +78,6 @@ server <- function(input,output){
   calcage = age_calc(dob = as.Date('1988-09-05'), units = 'years')
   #calcage = age_calc(dob = as.Date(seq(as.POSIXct('1987-05-29'), len=1, by="21 day")), units = 'years')
   absage = round(calcage, digits = 0)
-  
-=======
-    paste("Age: ", agecalc)
-  )  
-  agecalc <- age_calc(dob = input$birthday, units = "years")
->>>>>>> cf17fe2e5f8cf12588ae51a878071b01a608e0cf
 }
 
 #Run Application
