@@ -70,13 +70,15 @@ server <- function(input,output){
     paste("Birthday: ",input$birthday)
   )
   output$age <- renderText(
-    paste("Age: ", calcage)
+    paste("Age: ", absage)
   )  
 
-  
   #agecalculation
   library(eeptools)
-  age_calc(dob = as.Date('1988-09-05'), units = 'years')
+  calcage = age_calc(dob = as.Date('1988-09-05'), units = 'years')
+  #calcage = age_calc(dob = as.Date(seq(as.POSIXct('1987-05-29'), len=1, by="21 day")), units = 'years')
+  absage = round(calcage, digits = 0)
+  
 }
 
 #Run Application
