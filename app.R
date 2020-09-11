@@ -31,7 +31,7 @@ ui <- fluidPage(
           
           #sex
           radioButtons(inputId = "sex", label = "Sex", choices = c("Male", "Female"), width = "65%"),
-        
+          
           #maritalstatus
           #selectInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "65%")
           selectizeInput(inputId = "maritalstatus", label = "Marital Status", choices = list("Single", "Married", "Widowed", "Single Parent"), width = "65%", selected = NULL, multiple = TRUE, options = list(maxItems = 2)),
@@ -56,6 +56,14 @@ ui <- fluidPage(
       textOutput("name"),
       textOutput("birthday"),
       textOutput("age"),
+      textOutput("sex"),
+      h5("Marital Status: "), textOutput("maritalstatus", inline = TRUE),
+      textOutput("language"),
+      textOutput("numberofchildren"),
+      textOutput("workexperienceinyears"),
+      textOutput("email"),
+      #submitButton("SUBMIT")
+
       
       )
     )
@@ -72,7 +80,25 @@ server <- function(input,output){
   output$age <- renderText(
     paste("Age: ", absage)
   )  
-
+  output$sex <- renderText(
+    paste("Sex: ", input$sex)
+  )  
+  output$maritalstatus <- renderText(
+    paste(input$maritalstatus)
+  )  
+  output$language <- renderText(
+    paste("Language: ", input$language)
+  )  
+  output$numberofchildren <- renderText(
+    paste("Number of Children: ", input$numberofchildren)
+  ) 
+  output$workexperienceinyears <- renderText(
+    paste("Work Experience in Years: ", input$workexperienceinyears)
+  ) 
+  output$email <- renderText(
+    paste("Email Addresss: ", input$email)
+  ) 
+  
   #agecalculation
   library(eeptools)
   calcage = age_calc(dob = as.Date('1988-09-05'), units = 'years')
